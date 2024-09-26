@@ -1,0 +1,12 @@
+C:\Users\LENOVO\Desktop\UNIVERSIDAD\QUINTO SEMESTRE\L2\Circuito 1\circuito1tallerl2.sch
+Rs 2 1 1 0
+Vs 1 0 1 0
+.IOUT 2 4
+.OUT 2
+Rb 4 0 1 0
+Rl 3 0 1 0
+.DOUT 5 0
+.IOUT 5 3
+Rhie_Q1 4 _1 1000 0
+Fhfe_Q1 5 0 _1 0 100 0
+.END

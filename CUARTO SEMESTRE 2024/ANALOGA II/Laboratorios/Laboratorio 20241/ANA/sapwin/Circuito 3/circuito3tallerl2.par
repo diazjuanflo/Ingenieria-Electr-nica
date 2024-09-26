@@ -1,0 +1,9 @@
+[SAPEC]
+Out=vi;iin;io;dvo;
+NumOut=4
+Comp=Fhfe_Q2;Ghoe_Q2;Rb;Re;Rhie_Q2;Rl;Rs;Vs;$;
+Val=100;2.5e-05;1;1;1000;1;1;1;-1;
+GrNum=0;0;0;0;
+NtNum=6;3;2;2;
+GrDen=0
+NtDen=15

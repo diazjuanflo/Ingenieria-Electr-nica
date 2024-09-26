@@ -1,0 +1,24 @@
+io:
+
++ (  Vs Fhfe_Q1 Rb )
+------------------------------------------------------------------------------
++ (  - Fhfe_Q1 Re Rs - Fhfe_Q1 Rb Re - Rhie_Q1 Rs - Re Rs - Rb Rs - Rb Rhie_Q1 - Rb Re )
+
+vo:
+
++ (  Vs Fhfe_Q1 Rb Rl )
+------------------------------------------------------------------------------
++ (  - Fhfe_Q1 Re Rs - Fhfe_Q1 Rb Re - Rhie_Q1 Rs - Re Rs - Rb Rs - Rb Rhie_Q1 - Rb Re )
+
+vi:
+
++ (  - Vs Fhfe_Q1 Rb Re - Vs Rb Rhie_Q1 - Vs Rb Re )
+------------------------------------------------------------------------------
++ (  - Fhfe_Q1 Re Rs - Fhfe_Q1 Rb Re - Rhie_Q1 Rs - Re Rs - Rb Rs - Rb Rhie_Q1 - Rb Re )
+
+iin:
+
++ (  - Vs Fhfe_Q1 Re - Vs Rhie_Q1 - Vs Re - Vs Rb )
+------------------------------------------------------------------------------
++ (  - Fhfe_Q1 Re Rs - Fhfe_Q1 Rb Re - Rhie_Q1 Rs - Re Rs - Rb Rs - Rb Rhie_Q1 - Rb Re )
+

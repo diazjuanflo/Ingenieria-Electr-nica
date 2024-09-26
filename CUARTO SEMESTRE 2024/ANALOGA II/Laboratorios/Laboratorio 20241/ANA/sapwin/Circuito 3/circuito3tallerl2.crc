@@ -1,0 +1,14 @@
+C:\Users\LENOVO\Desktop\UNIVERSIDAD\QUINTO SEMESTRE\L2\circuito3tallerl2.sch
+Vs 1 0 1 0
+Rs 6 1 1 0
+.OUT 6
+.IOUT 6 2
+Rhie_Q2 2 _1 1000 0
+Fhfe_Q2 5 3 _1 3 100 0
+Ghoe_Q2 5 3 2.5e-05 0
+Re 3 0 1 0
+Rl 4 0 1 0
+.IOUT 5 4
+.DOUT 5 0
+Rb 6 0 1 0
+.END

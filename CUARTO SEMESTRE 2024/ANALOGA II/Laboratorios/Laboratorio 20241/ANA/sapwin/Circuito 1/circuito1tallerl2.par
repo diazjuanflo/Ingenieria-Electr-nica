@@ -1,0 +1,13 @@
+[SAPEC]
+Out=iin;vi;dvo;io;
+NumOut=4
+Comp=Fhfe_Q1;Rb;Rhie_Q1;Rl;Rs;Vs;$;
+Val=100;1;1000;1;1;1;1;
+GrNum=0;0;0;0;
+NtNum=2;1;1;1;
+GrDen=0
+NtDen=3
+Frefin=100.0
+Freqin=0.01
+EndTime=1.0
+Hz=1
