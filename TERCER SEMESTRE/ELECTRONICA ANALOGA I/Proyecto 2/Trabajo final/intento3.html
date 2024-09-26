@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transmisión en vivo</title>
+  </head>
+  <body>
+    <h1>Transmisión en vivo</h1>
+    
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <br>
+    <button id="startButton" onclick="startStreaming()">Iniciar transmisión en vivo</button>
+    <button id="stopButton" onclick="stopStreaming()">Detener transmisión en vivo</button>
+    
+    <br><br>
+    
+    <h2>Transmisión en vivo de Facebook</h2>
+    <div class="fb-live-stream" data-href="https://www.facebook.com/FacebookDevelopers" data-width="640" data-height="480"></div>
+    
+    <script>
+      let mediaSource = new MediaSource();
+      let mediaRecorder;
+      let recordedBlobs = [];
+
+      function startStreaming() {
+        let canvas = document.getElementById("canvas");
+        let stream = canvas.captureStream();
+
+        mediaRecorder = new MediaRecorder(stream, { mimeType: "video/webm; codecs=vp9" });
+        mediaRecorder.ondataavailable = handleDataAvailable;
+        mediaRecorder.start();
+
+        document.getElementById("startButton").disabled = true;
+        document.getElementById("stopButton").disabled = false;
+      }
+
+      function stopStreaming() {
+        mediaRecorder.stop();
+
+        document.getElementById("startButton").disabled = false;
+        document.getElementById("stopButton").disabled = true;
+      }
+
+      function handleDataAvailable(event) {
+        if (event.data && event.data.size > 0) {
+          recordedBlobs.push(event.data);
+        }
+      }
+
+      function playStream() {
+        let video = document.getElementById("video");
+        let superBuffer = new Blob(recordedBlobs, { type: "video/webm" });
+        video.src = window.URL.createObjectURL(superBuffer);
+        video.play();
+      }
+
+      function setupLiveStream() {
+        let mediaSource = new MediaSource();
+        let video = document.getElementById("video");
+        video.src = window.URL.createObjectURL(mediaSource);
+        mediaSource.addEventListener("sourceopen", function() {
+          let sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
+          sourceBuffer.addEventListener('updateend', function() {
+            mediaSource.endOfStream();
+            playStream();
+          });
+          sourceBuffer.appendBuffer(recordedBlobs[0]);
+        });
+      }
+
+      // Inicializar la transmisión en vivo de Facebook
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : 'tu_app_id_de_facebook',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+        FB.Event.subscribe('xfbml.ready', function(msg) {
+          if (msg.type === 'video') {
+            setupLiveStream();
+          }
+        });
+      };
+      
+      // Cargar el SDK de Facebook
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+    <div class="fb-root"></div>
+  </body>
+</html>

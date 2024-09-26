@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transmisión en vivo de Facebook</title>
+</head>
+<body>
+    <iframe id="live-stream" src="https://web.facebook.com/100041153081508/videos/200537512782494/" width="500" height="280" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    
+    <button onclick="checkLiveStatus()">Actualizar</button>
+
+    <script>
+        function checkLiveStatus() {
+            var liveStream = document.getElementById("live-stream");
+            var src = liveStream.src;
+            liveStream.src = "";
+            liveStream.src = src;
+        }
+    </script>
+</body>
+</html>

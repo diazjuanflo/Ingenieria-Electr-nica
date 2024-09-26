@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Funcionamiento de un servomotor</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Estilos CSS -->
+	<style>
+		/* Estilos para la animación del servomotor */
+		.servo-container {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+		}
+
+		.servo-base {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #333;
+			border-radius: 50%;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.servo-arm {
+			position: absolute;
+			width: 20px;
+			height: 100px;
+			background-color: #666;
+			bottom: 100px;
+			left: 50%;
+			transform-origin: bottom center;
+			transform: translateX(-50%) rotate(0deg);
+			transition: transform 0.5s;
+		}
+
+		/* Estilos para el widget de transmisión en vivo de Facebook */
+		.fb-video {
+			margin: 500px auto;
+			max-width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Contenedor de la animación del servomotor -->
+	<div class="servo-container">
+		<div class="servo-base"></div>
+		<div class="servo-arm"></div>
+	</div>
+
+	<!-- Widget de transmisión en vivo de Facebook -->
+	<div class="fb-video" data-href="https://web.facebook.com/100041153081508/videos/2014113702257783/" data-width="500" data-show-text="false"></div>
+
+	<!-- Scripts JavaScript -->
+	<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" async></script>
+	<script>
+		// Animación del servomotor
+		function moveServo(degrees) {
+			var servoArm = document.querySelector('.servo-arm');
+			servoArm.style.transform = 'translateX(-50%) rotate(' + degrees + 'deg)';
+		}
+
+		// Movimiento aleatorio del servomotor
+		setInterval(function() {
+			var randomDegrees = Math.floor(Math.random() * 180) - 90;
+			moveServo(randomDegrees);
+		}, 2000);
+	</script>
+</body>
+</html>
